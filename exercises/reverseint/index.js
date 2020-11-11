@@ -12,15 +12,20 @@ function reverseInt(n) {
 
     // shortened solution 
     // 
-    const reversed = n
-        .toString()
-        .split('')
-        .reverse()
-        .join('');
     // Math.sign() will return positive 1 or negative 1 
     // so just mutliplying the final number with it will return the correct pos/neg 
     // parseInt will ignore anythign that's not a number so the - at the end or the 0 before will be filtered out 
-    return parseInt(reversed) * Math.sign(n)
+    //
+    // const reversed = n
+    //     .toString()
+    //     .split('')
+    //     .reverse()
+    //     .join('');
+    // return parseInt(reversed) * Math.sign(n)
+
+    // even shorter 
+    //
+    return parseInt(n.toString().split('').reverse().join('')) * Math.sign(n)
 
     // first look answer 
     //
