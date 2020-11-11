@@ -25,8 +25,30 @@ function palindrome(str) {
     //
     // split the string, reverse the string, join the string 
     // and return whatever comes out from === which will basically come out true or false 
-    const reversed = str.split('').reverse().join('');
-    return str === reversed; 
+    //
+    // const reversed = str
+    //     .split('')
+    //     .reverse()
+    //     .join('');
+    // return str === reversed; 
+
+    // novel solution using every 
+    // 
+    // every does boolean check on every item on array 
+    // 
+    const arr = str.split('') ;
+    // every's return statement is boolean on wether EVERY iteration is true 
+    // you still have to return it for the function to work 
+    // every takes a function, the function can take 3 args(element, index, array)
+    return arr.every((element, index) => {
+        // first figure out the negativeIndex which is basically if index is 0 then the negativeIndex should be the last item 
+        // because index starts at 0 we can't directly use length 
+        // minus one from length and then also minus the index to get negativeIndex 
+        const negativeIndex = arr.length - index -1;
+        // and because every is like reduce, you have to return something every iteration 
+        // it should be boolean, and if each iteration returns true, then the whole every statement returns true 
+        return element === arr[negativeIndex]
+    })
 }
 
     // most complicated solution 
@@ -42,6 +64,6 @@ function palindrome(str) {
 
 
 
-// palindrome('abcde ');
+palindrome('abcde ');
 
 module.exports = palindrome;
