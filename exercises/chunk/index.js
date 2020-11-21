@@ -10,23 +10,42 @@
 
 function chunk(array, size) {
 
-    // pre-adding array solution 
-    let motherArray = [];
-    let chunkedArrayIndex = 0;
-    for (let i = 0; i < array.length; i++) {
-        if (i === 0) {
-            // if first time 
-            motherArray[0] = [array[i]]
-        } else if (motherArray[chunkedArrayIndex].length < size) {
-            // if there is room to add element into chunk
-            motherArray[chunkedArrayIndex].push(array[i])
+    // the solution from course 
+    const chunked = []
+    for (let element of array) {
+        // each time the iteration happens, going to pull out the last chunk array 
+        const last = chunked[chunked.length - 1]
+        
+        // and here going to check if it even exists? use bang to return true if it's undefined 
+        // and also going to check if the length of the the last chunk is at full capacity 
+        // either of these conditions means that we're going to add a new chunk
+        if (!last || last.length === size) {
+            chunked.push([element])
         } else {
-            // if the chunk is full so new one is req 
-            chunkedArrayIndex++
-            motherArray[chunkedArrayIndex] = [array[i]]
+            // otherwise just push the element into the last chunk 
+            chunked[chunked.length - 1].push(element)
         }
     }
-    return motherArray
+    return chunked; 
+
+
+    // pre-adding array solution 
+    // let motherArray = [];
+    // let chunkedArrayIndex = 0;
+    // for (let i = 0; i < array.length; i++) {
+    //     if (i === 0) {
+    //         // if first time 
+    //         motherArray[0] = [array[i]]
+    //     } else if (motherArray[chunkedArrayIndex].length < size) {
+    //         // if there is room to add element into chunk
+    //         motherArray[chunkedArrayIndex].push(array[i])
+    //     } else {
+    //         // if the chunk is full so new one is req 
+    //         chunkedArrayIndex++
+    //         motherArray[chunkedArrayIndex] = [array[i]]
+    //     }
+    // }
+    // return motherArray
 
 
     // first glance solution 
