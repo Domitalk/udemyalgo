@@ -12,6 +12,24 @@
 //   4
 //   buzz
 
-function fizzBuzz(n) {}
+function fizzBuzz(n) {
+
+
+    // first glance solution
+    // using the old school basic iterator and we go on until i < n + 1; 
+    // always start with the most constrictivec so that we can weed out first 
+    // get to solution by using modulo to check remainder 
+    for (let i = 1; i <= n ; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            console.log("fizzbuzz")
+        } else if (i % 3 === 0) {
+            console.log("fizz")
+        } else if (i % 5 === 0) {
+            console.log("buzz")
+        } else {
+            console.log(i)
+        }
+    }
+}
 
 module.exports = fizzBuzz;
