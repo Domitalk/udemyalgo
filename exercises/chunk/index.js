@@ -23,7 +23,7 @@ function chunk(array, size) {
             chunked.push([element])
         } else {
             // otherwise just push the element into the last chunk 
-            chunked[chunked.length - 1].push(element)
+            last.push(element)
         }
     }
     return chunked; 
