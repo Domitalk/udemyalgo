@@ -9,27 +9,34 @@
 // chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 
 function chunk(array, size) {
-
-    // the solution from course 
-    const chunked = []
-    for (let element of array) {
-        // each time the iteration happens, going to pull out the last chunk array 
-        const last = chunked[chunked.length - 1]
-        
-        // and here going to check if it even exists? use bang to return true if it's undefined 
-        // and also going to check if the length of the the last chunk is at full capacity 
-        // either of these conditions means that we're going to add a new chunk
-        if (!last || last.length === size) {
-            chunked.push([element])
-        } else {
-            // otherwise just push the element into the last chunk 
-            last.push(element)
-        }
+    // solution using slice instead 
+    let chunked = []
+    let index = 0 
+    while (index < array.length) {
+        chunked.push(array.slice(index, index + size))
+        index += size
     }
-    return chunked; 
+    return chunked 
 
 
-    // pre-adding array solution 
+    // // the solution from course 
+    // const chunked = []
+    // for (let element of array) {
+    //     // each time the iteration happens, going to pull out the last chunk array 
+    //     const last = chunked[chunked.length - 1]
+    //     // and here going to check if it even exists? use bang to return true if it's undefined 
+    //     // and also going to check if the length of the the last chunk is at full capacity 
+    //     // either of these conditions means that we're going to add a new chunk
+    //     if (!last || last.length === size) {
+    //         chunked.push([element])
+    //     } else {
+    //         // otherwise just push the element into the last chunk 
+    //         last.push(element)
+    //     }
+    // }
+    // return chunked; 
+
+    // // pre-adding array solution 
     // let motherArray = [];
     // let chunkedArrayIndex = 0;
     // for (let i = 0; i < array.length; i++) {
@@ -48,7 +55,7 @@ function chunk(array, size) {
     // return motherArray
 
 
-    // first glance solution 
+    // // first glance solution 
     // let motherArray = [];
     // let holdingArray = [];
     // let placeholderNumber = 1;
@@ -61,7 +68,6 @@ function chunk(array, size) {
     //         // when we're pushing the holding array 
     //         holdingArray.push(array[i])
     //         motherArray.push(holdingArray)
-
     //         holdingArray = []
     //         placeholderNumber = 1
     //     } 
