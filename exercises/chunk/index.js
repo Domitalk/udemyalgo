@@ -10,13 +10,13 @@
 
 function chunk(array, size) {
     // solution using slice instead 
-    let chunked = []
-    let index = 0 
+    let chunked = [];
+    let index = 0;
     while (index < array.length) {
-        chunked.push(array.slice(index, index + size))
-        index += size
-    }
-    return chunked 
+        chunked.push(array.slice(index, index + size));
+        index += size;
+    };
+    return chunked; 
 
 
     // // the solution from course 
