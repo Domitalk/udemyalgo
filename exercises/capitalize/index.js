@@ -16,6 +16,24 @@
 // 1. Maybe a validation helper to make sure that there's no error when special characters or numbers are thrown in 
 
 function capitalize(str) {
+    // create empty string holder 
+    let stringHolder = str[0].toUpperCase();
+    // iterate each character, 
+    for (i = 1; i < str.length; i++) {
+        // if previous index is space, capitalize and add to string holder
+        if (str[i - 1] === ' ') {
+            stringHolder += str[i].toUpperCase()
+        } else {
+            stringHolder += str[i]
+        };
+        // else just add to string holder 
+    };
+    return stringHolder;
+}
+
+
+
+function lessonSolutionOne(str) {
     // solution 1 from lesson 
 
     // they go about it the simpler way and just keep things as an array and push into 
