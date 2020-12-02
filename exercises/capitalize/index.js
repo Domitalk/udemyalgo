@@ -7,8 +7,28 @@
 //   capitalize('a lazy fox') --> 'A Lazy Fox'
 //   capitalize('look, it is working!') --> 'Look, It Is Working!'
 
-function capitalize(str) {
+// MY NOTES
+// what are possible edge cases beyond what the tests look for? 
+// 1. special characters? 
+// 2. double space? (prob not an issue with split)
+// 
+// MAKE 
+// 1. Maybe a validation helper to make sure that there's no error when special characters or numbers are thrown in 
 
+function capitalize(str) {
+    // solution 1 from lesson 
+
+    // they go about it the simpler way and just keep things as an array and push into 
+    const words = []; 
+
+    for (let word of str.split(' ')) {
+        // i kind of like this better than charAt but i'm not sure what kind of flags it could possibly throw if charAt doesn't work or zero index isn't character, i assume they will throw errors in the same situation because toUpperCase will trigger no matter what
+        words.push(word[0].toUpperCase() + word.slice(1))
+    }
+    return words.join(' ')
+}
+
+function firstGlance(str) {
     // so the idea is to isolate each word first 
     const stringAsArray = str.split(' ')
     // console.log(stringAsArray)
@@ -16,6 +36,8 @@ function capitalize(str) {
     return stringAsArray.reduce((accumulator, element) => {
         // console.log(accumulator)
         // console.log(element)
+        // remember that reducer needs a return value 
+        // another way to do this would be just to use index of string [0] instead of using the slice charAt function which is a sort of slice 
         return accumulator += (element.charAt(0).toUpperCase() + element.slice(1) + ' ')
         // at the end of the reducer, it'll take out the last space 
         // another way to do this would be to check the index of the array, which the reducer can make available 
