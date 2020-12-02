@@ -15,23 +15,22 @@
 // MAKE 
 // 1. Maybe a validation helper to make sure that there's no error when special characters or numbers are thrown in 
 
-function capitalize(str) {
-    // create empty string holder 
+function lessonSolutionTwo(str) {
+    // 1. create empty string holder 
+    // this guy starts off with str[0] because it'll need to be capitalized but there will be no space before it 
     let stringHolder = str[0].toUpperCase();
-    // iterate each character, 
+    // 2. iterate each character, 
     for (i = 1; i < str.length; i++) {
-        // if previous index is space, capitalize and add to string holder
+        // 2a. if previous index is space, capitalize and add to string holder
         if (str[i - 1] === ' ') {
             stringHolder += str[i].toUpperCase()
         } else {
+        // 2b. else just add to string holder 
             stringHolder += str[i]
         };
-        // else just add to string holder 
     };
     return stringHolder;
 }
-
-
 
 function lessonSolutionOne(str) {
     // solution 1 from lesson 
