@@ -8,8 +8,25 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-
 function anagrams(stringA, stringB) {
+
+    // so in this case instead of making a index to compare individual values, because we're dealing with a simple string we can just use sort 
+    // the helper will replace weird stuff like spaces and puncuation, split it into an Array, then sort the Array, then join it again as a string 
+    // the strings should look identical after they've been cleaned up and sorted if they are anagrams 
+    const sortedString = (string) => {
+        return string.replace(/[^\w]/g, "").toLowerCase().split('').sort().join('')
+    }
+
+    if (sortedString(stringA) == sortedString(stringB)) {
+        return true;
+    } else {
+        return false; 
+    }
+}
+
+
+
+function streamlinedSolution(stringA, stringB) {
     const stringACharacterMap = makeStringIntoIndex(stringA)
     const stringBCharacterMap = makeStringIntoIndex(stringB)
 
