@@ -16,9 +16,48 @@
 //       '##  '
 //       '### '
 //       '####'
+function steps(n, row = 0, returnString = '') {
+    // this recursive solution is a bit better than the previous double for loop because it cuts out one layer of time complexity 
+
+    // base case to stop 
+    if (n === row) {
+        return;
+    }
+
+    // incremented recursion
+    if (n === returnString.length) {
+        // basically creating the double for loop in previous case with row being the placeholder variable that creates the first loop 
+        console.log(returnString);
+        // in the next row we should start over with returnString
+        return steps(n, row += 1);
+    } 
+
+    // adding a char and doing again 
+    // this is essentially the second for loop 
+    const add = returnString.length <= row ? "#" : " "
+    steps(n, row, returnString + add)
+}
 
 
-function steps(n) {
+// in recursive, start with a function that's going to loop 
+function printNumber(n, dec = 1) {
+    // 3rd have a resonable default aka dec = 1
+
+    // 1st thing is to find the base case, where do we stop? 
+    if (n === 0) {
+        return;
+    }
+
+    // the WORK GOES HERE 
+
+    // to check where we at 
+    console.log(n);
+
+    // 2nd - to recurse with a diff number the arg HAS to change every time 
+    printNumber(n - dec, 1);
+}
+
+function iterativeSolution(n) {
     // from 0 to n (iterate)
     for (let row = 0; row < n; row++) {
     //     create empty string 
