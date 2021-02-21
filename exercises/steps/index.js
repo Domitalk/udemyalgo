@@ -17,6 +17,23 @@
 //       '### '
 //       '####'
 
-function steps(n) {}
+function steps(n) {
+
+    // 1. iterate through n times (each row)
+    let currentStep = 1
+    while (currentStep <= n) {
+        // 2. modify tempString 
+        let tempString = ""
+        for (i = 1; i <= n; i++) {
+            if (i <= currentStep) {
+                tempString += "#"
+            } else {
+                tempString += " "
+            }
+        }
+        console.log(tempString)
+        currentStep += 1 
+    }
+}
 
 module.exports = steps;
