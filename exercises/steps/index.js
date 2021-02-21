@@ -17,14 +17,36 @@
 //       '### '
 //       '####'
 
-function steps(n) {
 
+function steps(n) {
+    // from 0 to n (iterate)
+    for (let row = 0; row < n; row++) {
+    //     create empty string 
+        let returnString = ''
+    //     from 0 to n (iterate through columns)
+        for (let column = 0; column < n; column++) {
+    //         if current column is <= current row 
+            if (column <= row) {
+    //             add # 
+                returnString += '#'
+    //         else 
+            } else {
+    //              add ' '
+                returnString += ' '
+            }
+        }
+    //     console.log
+        console.log(returnString)
+    }
+}
+
+function firstLook(n) {
     // 1. iterate through n times (each row)
     let currentStep = 1
     while (currentStep <= n) {
         // 2. modify tempString 
         let tempString = ""
-        for (i = 1; i <= n; i++) {
+        for (let i = 1; i <= n; i++) {
             if (i <= currentStep) {
                 tempString += "#"
             } else {
